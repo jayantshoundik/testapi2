@@ -21,6 +21,8 @@ class ActivityPeriod(models.Model):
     updated_on = models.DateTimeField(auto_now= True)
     created_on = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        return '%s : %s' %(self.start_time, self.end_time)
+        dic = {'start_time': self.start_time,'end_time':  self.end_time}
+        
+        return str(dic)
 
 
