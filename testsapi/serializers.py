@@ -7,14 +7,17 @@ class ActivityPeriodSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ActivityPeriod
-        fields = [ 'start_time', 'end_time']
+        fields = [ 'member','start_time', 'end_time']
         
-       
+class ActivityPeriod2Serializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ActivityPeriod
+        fields = [ 'start_time', 'end_time']     
     
 
-
 class MemberSerializer(serializers.ModelSerializer):
-    activityperiod = ActivityPeriodSerializer(many=True)
+    activityperiod = ActivityPeriod2Serializer(many=True)
     class Meta:
         model = Member
         fields = ['idno','real_name', 'timezone','activityperiod']
